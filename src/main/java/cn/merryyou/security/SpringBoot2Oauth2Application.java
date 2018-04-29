@@ -35,9 +35,9 @@ public class SpringBoot2Oauth2Application {
         SpringApplication.run(SpringBoot2Oauth2Application.class, args);
     }
 
-    @GetMapping("/user")
-    public Object getCurrentUser1(Authentication authentication, HttpServletRequest request) throws UnsupportedEncodingException {
-        log.info("【SecurityOauth2Application】 getCurrentUser1 authenticaiton={}", JsonUtil.toJson(authentication));
+    @GetMapping("/userJwt")
+    public Object getCurrentUserJwt(Authentication authentication, HttpServletRequest request) throws UnsupportedEncodingException {
+        log.info("【SecurityOauth2Application】 getCurrentUserJwt authentication={}", JsonUtil.toJson(authentication));
 
         String header = request.getHeader("Authorization");
         String token = StringUtils.substringAfter(header, "bearer ");
@@ -48,4 +48,13 @@ public class SpringBoot2Oauth2Application {
 
         return authentication;
     }
+
+    @GetMapping("/userRedis")
+    public Object getCurrentUserRedis(Authentication authentication) {
+        log.info("【SecurityOauth2Application】 getCurrentUserRedis authentication={}", JsonUtil.toJson(authentication));
+
+
+        return authentication;
+    }
+
 }

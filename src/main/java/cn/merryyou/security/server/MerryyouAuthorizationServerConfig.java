@@ -88,16 +88,16 @@ public class MerryyouAuthorizationServerConfig extends AuthorizationServerConfig
                         .accessTokenValiditySeconds(config.getAccessTokenValiditySeconds())
                         .refreshTokenValiditySeconds(60 * 60 * 24 * 15)
                         .authorizedGrantTypes("refresh_token", "password", "authorization_code")//OAuth2支持的验证模式
-                        .scopes("all")
-                        .autoApprove(true);
+                        .redirectUris("http://www.merryyou.cn")
+                        .scopes("all");
             }
         }
     }
 
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
-        //允许表单认证
-        oauthServer.allowFormAuthenticationForClients();
-        oauthServer.passwordEncoder(passwordEncoder);
-    }
+//    @Override
+//    public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
+//        //允许表单认证
+//        oauthServer.allowFormAuthenticationForClients();
+//        oauthServer.passwordEncoder(passwordEncoder);
+//    }
 }

@@ -36,7 +36,7 @@ public class SpringBoot2Oauth2Test {
     //获取accessToken得URI
     final static String TOKEN_REQUEST_URI = "http://127.0.0.1:" + PORT + "/oauth/token?grant_type=password&username=" + USERNAME + "&password=" + PASSWORD + "&scope=all";
     //获取用户信息得URL
-    final static String USER_INFO_URI = "http://127.0.0.1:" + PORT + "/user";
+    final static String USER_INFO_URI = "http://127.0.0.1:" + PORT + "/userRedis";
     //登录地址
     final static String SIGN_IN_URI = "http://127.0.0.1:" + PORT + "/login";
 
