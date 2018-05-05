@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>authorization-server</module>
+        <module>resource-server</module>
     </modules>
 
     <parent>
@@ -18,4 +19,5 @@
         <version>2.0.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
 </project>
