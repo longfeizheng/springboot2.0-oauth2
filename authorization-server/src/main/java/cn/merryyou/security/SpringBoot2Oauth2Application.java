@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 
 /**
  * Created on 2018/4/28.
@@ -55,6 +56,11 @@ public class SpringBoot2Oauth2Application {
 
 
         return authentication;
+    }
+
+    @GetMapping("/user/me")
+    public Principal user(Principal user){
+        return user;
     }
 
 }

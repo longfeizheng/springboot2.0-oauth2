@@ -100,4 +100,15 @@ public class MerryyouAuthorizationServerConfig extends AuthorizationServerConfig
 //        oauthServer.allowFormAuthenticationForClients();
 //        oauthServer.passwordEncoder(passwordEncoder);
 //    }
+
+    /**
+     * springSecurity 授权表达式，
+     * @param security
+     * @throws Exception
+     */
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        security.tokenKeyAccess("permitAll()");
+        security.checkTokenAccess("isAuthenticated()");
+    }
 }

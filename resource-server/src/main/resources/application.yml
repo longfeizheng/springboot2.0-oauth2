@@ -1,17 +1,18 @@
+auth-server: http://localhost:8888 # sso-server地址
 server:
   port: 8889
-spring:
-  redis:
-    host: localhost
-    port: 6379
-    jedis:
-      pool:
-        max-active: 8
-        max-wait: 10s
-        min-idle: 0
-        max-idle: 8
-merryyou:
-  security:
-    oauth2:
-      storeType: redis #或者jwt
-      jwtSigningKey: merryyou
+security:
+  oauth2:
+    client:
+      client-id: merryyou
+      client-secret: merryyou
+      user-authorization-uri: ${auth-server}/oauth/authorize #请求认证的地址
+      access-token-uri: ${auth-server}/oauth/token #请求令牌的地址
+    resource:
+      jwt:
+        key-uri: ${auth-server}/oauth/token_key
+      user-info-uri: ${auth-server}/user/me
+      token-info-uri: ${auth-server}/oauth/check_token
+logging:
+  level:
+    org.springframework: debug

@@ -12,11 +12,11 @@ spring:
         max-idle: 8
 logging:
   level:
-    org.springframework: info
+    org.springframework: debug
 merryyou:
   security:
     oauth2:
-      storeType: redis #或者jwt
+      storeType: jwt #或者jwt
       jwtSigningKey: merryyou
       clients[0]:
         clientId: merryyou
